@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Predikim Interaktiv</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html, body { width:100%; height:100%; overflow:hidden; font-family:'Inter',sans-serif; background:#000; }
+    .back-btn {
+      position: fixed; top:2vw; left:2vw;
+      background: rgba(255,255,255,0.3); backdrop-filter:blur(6px);
+      padding:2vw; border-radius:50%; cursor:pointer;
+      transition: background .3s;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.5); }
+    #slides { position:relative; width:100%; height:100%; }
+    .slide {
+      position:absolute; top:0; left:0; width:100%; height:100%;
+      padding:8vw 5vw; text-align:center; color:#fff;
+      opacity:0; pointer-events:none;
+      transition: opacity 0.4s ease;
+    }
+    .slide.active { opacity:1; pointer-events:auto; }
+    .theme-pred { background:linear-gradient(135deg,#2193b0,#6dd5ed); }
+    .theme-quiz { background:linear-gradient(135deg,#f7971e,#ffd200); }
+    .theme-ref { background:linear-gradient(135deg,#56ab2f,#a8e063); }
+    .theme-end { background:linear-gradient(135deg,#662d8c,#ed1e79); }
+    .section-title { font-size:8vw; font-weight:700; margin-bottom:4vw; }
+    h2 { font-size:6vw; margin-bottom:3vw; font-weight:600; }
+    .option {
+      width:100%; padding:3vw; margin:2vw 0; border-radius:5vw;
+      background:rgba(255,255,255,0.2); backdrop-filter:blur(8px);
+      font-weight:600; cursor:pointer;
+      transition: transform .2s, background .4s;
+    }
+    .option:hover { transform:translateY(-2vw); background:rgba(255,255,255,0.3); }
+    .option.correct { background:rgba(255,255,255,0.6); color:#333; }
+    #score-display { font-size:4vw; margin-top:2vw; }
+    .progress { position:absolute; bottom:0; left:0; height:4vw; background:rgba(255,255,255,0.7); width:0; transition: width 0.4s; }
+    @media(min-width:600px){
+      .back-btn { top:1rem; left:1rem; padding:0.5rem; }
+      .section-title { font-size:2.5rem; }
+      h2 { font-size:2rem; }
+      .option { padding:1rem; border-radius:1rem; margin:0.5rem 0; }
+      #score-display { font-size:1.2rem; margin-top:1rem; }
+      .progress { height:6px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to index -->
+  <div class="back-btn" onclick="location.href='index.html'">🔙</div>
+
+  <div id="slides">
+    <div class="slide theme-pred active">
+      <div class="section-title">Pjesa 1: Predikimi Dinamik</div>
+      <p>Mirësevini në prezantimin mbi Mateun dhe Jezusin.</p>
+    </div>
+    <div class="slide theme-pred">
+      <h2>Kush ishte Mateu?</h2>
+      <ul style="list-style:none;padding:0;font-size:4vw;line-height:1.4;">
+        <li>▹ Taksëpagues në Kafarnaum</li>
+        <li>▹ Dishepull i Jezusit</li>
+        <li>▹ Autor i Ungjillit sipas Mateut</li>
+      </ul>
+    </div>
+    <div class="slide theme-pred">
+      <h2>Thirrja e Jezusit</h2>
+      <p><em>Mateu 9:9</em> – “Eja pas meje.”</p>
+    </div>
+    <div class="slide theme-quiz" id="quiz-slide">
+      <h2>Pjesa 2: Kuizi</h2>
+      <div id="score-display">Pikët: <span id="score">0</span></div>
+      <div id="quiz-container"></div>
+    </div>
+    <div class="slide theme-ref" id="ref-slide">
+      <h2>Pjesa 3: Reflektim Praktik</h2>
+      <div id="ref-container"></div>
+    </div>
+    <div class="slide theme-end">
+      <h2>Faleminderit!</h2>
+      <p>Vazhdoni me modulet e tjera nga faqja kryesore.</p>
+    </div>
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <script>
+    const slides = [...document.querySelectorAll('.slide')];
+    const prog = document.getElementById('progress');
+    let cur = 0;
+
+    function show(i) {
+      slides[cur].classList.remove('active');
+      cur = i; slides[cur].classList.add('active');
+      prog.style.width = (cur/(slides.length-1)*100)+'%';
+      if (slides[cur].id==='quiz-slide') initQuiz();
+      if (slides[cur].id==='ref-slide') initRef();
+    }
+
+    document.body.addEventListener('click', e => {
+      if (e.target.classList.contains('option')) return;
+      if (cur < slides.length - 1) show(cur + 1);
+    });
+
+    // Quiz
+    const quizQ = [
+      { q:'Cili ishte profesioni i Mateut?', opts:['Mjek','Taksëpagues','Mësues','Peshkatar'], a:1 },
+      { q:'Në cilin qytet punonte Mateu?',       opts:['Nazaret','Jerusalem','Betsaida','Kafarnaum'], a:3 },
+      { q:'Cilën thirrje i bëri Jezusi?',        opts:['Eja pas meje','Bëhu pastrues','Na shoqëro','Rri këtu'], a:0 },
+      { q:'Sa pyetje përmban ky kuiz?',          opts:['3','4','5','6'], a:2 },
+      { q:'Cili atribut nuk përmendet?',         opts:['Kurajo','Drejtësi','Frymëzim','Transformim'], a:2 }
+    ];
+    let qi=0, qs=0;
+    function initQuiz(){
+      document.getElementById('score').textContent = qs;
+      const c = document.getElementById('quiz-container');
+      c.innerHTML = `<h2>${quizQ[qi].q}</h2>`;
+      quizQ[qi].opts.forEach((o,i)=>{
+        const d = document.createElement('div');
+        d.className = 'option'; d.textContent = o;
+        d.onclick = () => {
+          if (i===quizQ[qi].a){ qs++; d.classList.add('correct'); }
+          else d.classList.add('wrong');
+          setTimeout(()=>{
+            qi++; qi<quizQ.length? initQuiz() : show(slides.findIndex(s=>s.id==='ref-slide'));
+          },600);
+        };
+        c.appendChild(d);
+      });
+    }
+
+    // Reflection
+    const refQ = [
+      { q:'Si e ndien thirrjen “Eja pas meje”?', opts:['Frymëzim','Dëshpërim','Kureshtje','Pa ndryshim'] },
+      { q:'Çfarë hapi konkret mund të bëni?',    opts:['Të heshtësh','Të ndihmosh','Të studiosh Bibël','Të mos veprosh'] },
+      { q:'Kujt do e ndanit këtë mesazh?',       opts:['Mikut','Familjes','Fqinjëve','Shoqërisë'] }
+    ];
+    let ri = 0;
+    function initRef(){
+      const c = document.getElementById('ref-container');
+      c.innerHTML = `<h2>${refQ[ri].q}</h2>`;
+      refQ[ri].opts.forEach(o=>{
+        const d = document.createElement('div');
+        d.className='option'; d.textContent = o;
+        d.onclick = () => {
+          d.classList.add('correct');
+          setTimeout(()=>{
+            ri++; ri<refQ.length? initRef() : show(slides.length-1);
+          },600);
+        };
+        c.appendChild(d);
+      });
+    }
+  </script>
+</body>
+</html>

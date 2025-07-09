@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Pro Karaoke Hub – Vallë</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;font-family:'Inter',sans-serif;
+      background:linear-gradient(135deg,#56ab2f,#a8e063);}
+    .back-btn {
+      position: fixed; top: 2vw; left: 2vw;
+      background: rgba(255,255,255,0.3); backdrop-filter: blur(6px);
+      padding: 2vw; border-radius: 50%; cursor: pointer;
+      transition: background .3s;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.5); }
+    .container{padding:5vw;display:flex;flex-direction:column;align-items:center;}
+    h1{font-size:8vw;color:#fff;text-align:center;margin-bottom:4vw;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(30vw,1fr));gap:3vw;width:100%;}
+    .card{position:relative;padding-top:100%;border-radius:4vw;overflow:hidden;cursor:pointer;
+      backdrop-filter:blur(8px);background:rgba(255,255,255,0.2);transition:transform 0.2s;}
+    .card:hover{transform:scale(1.03);}
+    .card-inner{position:absolute;top:0;left:0;width:100%;height:100%;transform-style:preserve-3d;
+      transition:transform 0.6s;}
+    .card.flipped .card-inner{transform:rotateY(180deg);}
+    .face{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;
+      align-items:center;justify-content:center;backface-visibility:hidden;font-size:6vw;font-weight:700;color:#fff;}
+    .front{background:rgba(0,0,0,0.3);}
+    .back{transform:rotateY(180deg);flex-direction:column;padding:3vw;font-size:4vw;}
+    @media(min-width:600px){
+      .back-btn { top:1rem; left:1rem; padding:0.5rem; }
+      h1{font-size:2.5rem;}
+      .card{border-radius:1rem;}
+      .face{font-size:1.5rem;}
+      .back{font-size:1rem;padding:1rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to index -->
+  <div class="back-btn" onclick="location.href='index.html'">
+    🔙
+  </div>
+
+  <div class="container">
+    <h1>Vallë</h1>
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <script>
+    const dances = [
+      { title:'Vallja e Rugovës',    link:'https://youtu.be/SqebZM1eDtI' },
+      { title:'Shota',               link:'https://youtu.be/_GdvEYflR0k' },
+      { title:'Vallja e Tropojës',   link:'https://youtu.be/8PJJxoQnSKc' },
+      { title:'Vallja e Kuksit',     link:'https://youtu.be/fPSMFVhwKIQ' },
+      { title:'Vallja e Rrajcës',    link:'https://youtu.be/vy9PgvWaQE4' },
+      { title:'Vallja e Tiranës',    link:'https://youtu.be/UrhKjNHHqc0' },
+      { title:'Vallja Qaj Minushe',  link:'https://youtu.be/RAdSbSSutR8' },
+      { title:'Vallja Treshe',       link:'https://youtu.be/qxEpl4fhGes' },
+      { title:'Vallja Elenaqi',      link:'https://youtu.be/45yzCvBngio' },
+      { title:'Vallja Shtruar',      link:'https://youtu.be/DMqBQZKQy1w' },
+      { title:'Vallja Katjusha',     link:'https://youtu.be/y0FZ3ro_rIk' },
+      { title:'Vallja e Pinguinit',  link:'https://youtu.be/ZiMRh6t8pB0' },
+      { title:'Vallja e Pipzave',    link:'https://youtu.be/RPP_Efkhc4w' },
+      { title:'Vallja e Shuplakave', link:'https://youtu.be/LC50HW5Lf5U' }
+    ];
+
+    function shuffle(a){
+      for(let i=a.length-1;i>0;i--){
+        let j=Math.floor(Math.random()*(i+1));
+        [a[i],a[j]]=[a[j],a[i]];
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      shuffle(dances);
+      const grid = document.getElementById('grid');
+      dances.forEach((d,i)=>{
+        const card = document.createElement('div'); card.className='card';
+        const inner = document.createElement('div'); inner.className='card-inner';
+        const front = document.createElement('div'); front.className='face front'; front.textContent = i+1;
+        const back  = document.createElement('div'); back.className='face back';
+        back.innerHTML = `<div>${d.title}</div>
+          <a href="${d.link}" target="_blank"
+             style="margin-top:2vw;padding:2vw 4vw;background:#fff;color:#333;
+                    border-radius:2vw;text-decoration:none;font-size:3vw;">
+            Shiko!
+          </a>`;
+        front.onclick = ()=> card.classList.add('flipped');
+        inner.append(front, back);
+        card.append(inner);
+        grid.append(card);
+      });
+    });
+  </script>
+</body>
+</html>

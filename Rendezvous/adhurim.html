@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Adhurim</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html,body{width:100%;height:100%;overflow:auto;font-family:'Inter',sans-serif;
+      background:linear-gradient(135deg,#662d8c,#ed1e79);color:#fff;}
+    .back-btn {
+      position: fixed; top:2vw; left:2vw;
+      background: rgba(255,255,255,0.3); backdrop-filter: blur(6px);
+      padding:2vw; border-radius:50%; cursor:pointer;
+      transition: background .3s;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.5); }
+    .wrapper{padding:5vw;max-width:90vw;margin:0 auto;}
+    h1{font-size:8vw;text-align:center;margin-bottom:4vw;font-weight:700;}
+    .controls{margin-bottom:4vw;display:flex;flex-direction:column;gap:3vw;}
+    select, .mode{padding:3vw;font-size:4vw;border:none;border-radius:3vw;}
+    .lyrics{background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);
+      padding:4vw;border-radius:4vw;display:none;}
+    .lyrics h2{font-size:6vw;margin-bottom:3vw;color:#fff;}
+    .lyrics pre{font-family:inherit;font-size:4vw;white-space:pre-wrap;line-height:1.4;color:#fff;}
+    @media(min-width:600px){
+      .back-btn { top:1rem; left:1rem; padding:0.5rem; }
+      .wrapper{padding:2rem;max-width:800px;}
+      h1{font-size:2.5rem;}
+      select,.mode{padding:1rem;font-size:1rem;border-radius:0.5rem;}
+      .controls{flex-direction:row;gap:1rem;}
+      .lyrics{padding:1.5rem;border-radius:1rem;}
+      .lyrics h2{font-size:1.8rem;}
+      .lyrics pre{font-size:1rem;}
+    }
+  </style>
+</head>
+<body>
+  <!-- Back to index -->
+  <div class="back-btn" onclick="location.href='index.html'">🔙</div>
+
+  <div class="wrapper">
+    <h1>Adhurim</h1>
+    <div class="controls">
+      <select id="songSelect">
+        <option value="" disabled selected>— Zgjidh këngën —</option>
+        <option value="luftetar">Zoti ynë është luftëtar</option>
+        <option value="emanuel">Eja, eja Emanuel</option>
+        <option value="psalm34">Psalm 34</option>
+        <option value="botenTende">Ne botën Tënde</option>
+        <option value="hajde">Hajde, hajde</option>
+        <option value="ngrihem">Do të ngrihem</option>
+        <option value="cohu">Çohu, gëzohu</option>
+        <option value="asnje">Asgjë s’më mban pas</option>
+      </select>
+      <div class="mode">
+        <label><input type="radio" name="mode" value="lyrics" checked> Vetëm tekst</label>
+        <label><input type="radio" name="mode" value="chords"> Me akorde</label>
+      </div>
+    </div>
+    <div class="lyrics" id="lyrics">
+      <h2 id="title"></h2>
+      <pre id="text"></pre>
+    </div>
+  </div>
+
+  <script>
+    const songs = {
+      luftetar: {
+        title: "Zoti ynë është luftëtar",
+        lyrics: `Ti na nxjerr’ jasht’ nga thell’sit’,
+këput zinxhirët, na bën të lirë.
+Jo asnjë armë s’triumfon
+me Fjalën tënde ne i dërrmojmë.
+
+Lavdet për Ty Zot jehojn’,
+shenjtorët shpallin, sa i madh Ti je.
+Përjetë o Zot do të mbretërosh,
+ndaj s’kemi frikë, në Ty qëndrojmë.
+
+Ref:
+Zoti ynë është luftëtar,
+është zjarr që konsumon.
+Me fitore mbretëron,
+n’emrin e Tij ne fitojm’.
+
+Bridge:
+Ësht’ ngritur lart ky emri Jezus
+Për mbrojtjen tonë qëndron i patundur
+Ndaj ne dëshmojm’ fuqinë e pashterur
+Që është në emrin Jezus…`,
+        chords: `G   D   Em  C
+Ti na nxjerr’ jasht’ nga thell’sit’...
+...
+C   G   D   Em
+Ësht’ ngritur lart ky emri Jezus…`
+      },
+      emanuel: {
+        title: "Eja, eja Emanuel",
+        lyrics: `O eja, eja o Emanuel,
+shpengo të robëruarin Izrael,
+ndërsa n’mërgim ai mban zi
+dhe pret të shfaqet Biri i Perëndisë.
+
+Gëzo, gëzo Emanuel,
+çlirimin solle Ti në Izrael.
+
+Eja agim mëngjesi që nga lart,
+lër dritën Tënde të shkëlqejë mbi ne;
+të zymta retë e natës shpërndaj
+dhe hija e vdekjes shkoj’ larg nga ne.
+
+Gëzo, gëzo Emanuel,
+se Ti do të vish tek ne në Izrael.
+
+O profet i Perëndisë,
+hapi derën e qiellit për ne!
+Bëhu ngushëllim, bëhu drejtim,
+na ço në gjirin e Atit.
+
+Gëzo, gëzo Emanuel,
+fjala jote do të venisë çdo terr.
+
+O ndërmjetësues, Kryeprifti ynë,
+lutja jonë, sakrifica jote.
+Gjykimin s’e frikësojmë më,
+sepse gjaku yt çlirim na jep.
+
+Gëzo, gëzo Emanuel,
+frikën e ferrit ke larguar.
+
+Eja, o Mbret i kombeve,
+sill fund vuajtjeve e mundimit.
+Jep urdhër dhimbja të pushojë,
+mbretëro si Princ i Paqes sonë!
+Gëzo, gëzo Emanuel…`
+      },
+      psalm34: {
+        title: "Psalm 34",
+        lyrics: `Ai më dëgjon kur i thërras
+Edhe më çliron nga tmerret që kam.
+Kur Atë shikoj ndriçohem krejt
+Dhe turp para Tij jo më s’do të kem.
+
+Ref:
+Lartëso Zotin me mua,
+Të lavdërojmë emrin e Tij.`
+      },
+      botenTende: {
+        title: "Ne botën Tënde",
+        lyrics: `Në luginë e botës Tënde un’ dua të endem,
+Në krahët e agimit dua të fle.
+Në madhështinë Tënde që Ti ke krijuar,
+Mbështes lehtë kokën, mendoj vetëm për Ty.
+
+T’buzeqesh Ty, o Zot (2x)
+Sa mirë ndihem në Ty, sa bukuri ka bota jote.
+Nuk ka dhimbje, vetëm dashuri,
+Drita jote shkëlqen në sytë e mi,
+është dritë e përjetshme,
+Je Ti, o Zot.`
+      },
+      hajde: {
+        title: "Hajde, hajde",
+        lyrics: `Na ka krijuar një Zot besnik,
+Ai mbretëron në madhështí.
+Prandaj ne themi eja, le të festojmë,
+I madh është Zoti ynë!
+
+Ref:
+Hajde, hajde! Të lavdërojmë Jezusin
+Eja, eja! Në prezencën e Tij
+Do lartësojmë Ty sepse Ti je Zoti i mrekullueshmi,
+Edhe Ti sundon mbi të gjithë.
+
+Ne sofrën Tënde na ke thirrur,
+Dhe ne themi eja, le të festojmë
+Të gëzojmë në përjetësi.`
+      },
+      ngrihem: {
+        title: "Do të ngrihem",
+        lyrics: `Kjo është zbuluesa ime, Krishti i kryqëzuar,
+Shpëtim përmes pendimit, në kryq Ai vdiq.
+
+Mëkatet më janë falur, ky është rrëfimi im,
+U zhytëm në ujëra, si Krishti u varros.
+
+Ref:
+Do t’ngrihem lart, do t’ngrihem lart,
+ashtu si Krishti u ngjall.
+Tani jetoj në Të.
+
+Tani krijesë e re, i larë nga gjaku i Tij,
+S’kam frikë nga dënimi,
+liri përmes besimit.
+
+Ref (2x)
+
+Në Krishtin ringjallur,
+shpall mbretërinë e Tij,
+me jetën shpall kush Ai është,
+emrin Tënd lavdëroj!`
+      },
+      cohu: {
+        title: "Çohu, gëzohu",
+        lyrics: `Sa larg është Perëndimi nga Lindja, fjala thotë:
+Zoti ka larguar fajin tënd,
+Ai ka harruar të keqen tënde,
+ndaj çohu, gëzohu mos rri në vend (2x)
+
+Ref:
+Çohu, gëzohu, Zoti im të ka falur ty
+Çohu, gëzohu, Ai të do ty (4x)
+
+Para se të lindje Ai të deshi,
+Në ditën kur ti linde Ai festoi.
+
+Çohu, gëzohu mos rri në vend.`
+      },
+      asnje: {
+        title: "Asgjë s’më mban pas",
+        lyrics: `Jam i zgjedhur, jam i lirë, të jetoj në përjetësi,
+I lirë përgjithmonë.
+Më ngrite lart, Ti më drejton, këmbët e mia i forcon,
+I Yti përgjithmonë.
+
+Para Ref:
+Asgjë nuk do t’me kthej më pas,
+Asgjë nuk do t’me kthej më pas,
+Asgjë nuk do t’me kthej më pas.
+
+Ref:
+Prangat u thyen, jam i lirë,
+Jam i gjallë për Ty, i gjallë për Ty.
+Oh ç’dashuri si ka mundësi?
+Dhe gjithë për mua Ti, gjithë për mua.
+
+Mëkatin tim e lave Ti,
+pastruar jam un për çdo ditë,
+I lirë përgjithmonë.
+
+Përpara fronit qëndroj,
+kurorën e jetës fitoj,
+I Yti përgjithmonë.
+
+Bridge:
+I lirë të jetoj, i lirë të jap,
+i lirë të jem, i lirë të dua (3x) ZOT.`
+      }
+    };
+
+    const sel = document.getElementById('songSelect'),
+          modes = document.getElementsByName('mode'),
+          wrap = document.getElementById('lyrics'),
+          ti   = document.getElementById('title'),
+          tx   = document.getElementById('text');
+
+    function render() {
+      const key = sel.value;
+      if (!key) { wrap.style.display = 'none'; return; }
+      const song = songs[key];
+      const mode = [...modes].find(r => r.checked).value;
+      ti.textContent = song.title;
+      tx.textContent = (mode==='chords' && song.chords) ? song.chords : song.lyrics;
+      wrap.style.display = 'block';
+      wrap.scrollIntoView({behavior:'smooth'});
+    }
+
+    sel.addEventListener('change', render);
+    modes.forEach(r => r.addEventListener('change', render));
+  </script>
+</body>
+</html>
