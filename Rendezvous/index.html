@@ -61,11 +61,20 @@
       <span>Predikimi</span>
     </div>
     <!-- Karaoke -->
-    <div class="card" onclick="location.href='karaoke.html'">
+    <div class="card" onclick="{
+      const pwd = prompt('Shkruani fjalëkalimin për Karaoke:');
+      if(pwd === 'Kamp2025') location.href='karaoke.html';
+      else if(pwd !== null) alert('Fjalëkalim i gabuar');
+    }">
       <svg viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg>
       <span>Karaokë</span>
     </div>
     <!-- Valle -->
+    <div class="card" onclick="{
+      const pwd = prompt('Shkruani fjalëkalimin për Vallë:');
+      if(pwd === 'Kamp2025') location.href='valle.html';
+      else if(pwd !== null) alert('Fjalëkalim i gabuar');
+    }">
     <div class="card" onclick="location.href='valle.html'">
       <svg viewBox="0 0 24 24"><path d="M16 5a3 3 0 0 1-6 0 3 3 0 0 1 6 0zm-2 14h-4v-6h4v6zm4-8h-4v-2h4v2zm-10 0H4V9h4v2z"/></svg>
       <span>Vallë</span>
