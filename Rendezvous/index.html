@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Pro Karaoke Hub – Zgjidh Modulin</title>
+  <title>Pro Karaoke Hub – Zgjedh Modulin</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     html, body { width:100%; height:100%; overflow:hidden; font-family:'Inter',sans-serif; }
     body {
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
       background: linear-gradient(135deg,#2193b0,#6dd5ed);
       color:#fff;
     }
-    h1 { font-size:8vw; font-weight:700; margin-bottom:5vw; text-align:center; }
+    header {
+      width:100%; padding:4vw 0; background: rgba(0,0,0,0.3); backdrop-filter:blur(6px);
+      text-align:center;
+    }
+    header h1 {
+      font-size:6vw; font-weight:600;
+    }
+    .sub-title {
+      font-size:4vw; font-weight:400; opacity:0.8;
+      margin-top:1vw;
+    }
+    h1.main-title { font-size:8vw; font-weight:700; margin:5vw 0 4vw; text-align:center; }
     .grid {
       display:grid; grid-template-columns:1fr 1fr; gap:4vw;
       width:90%; max-width:420px;
@@ -27,7 +38,9 @@
     .card svg { width:20vw; height:20vw; margin-bottom:2vw; fill:#fff; }
     .card span { display:block; font-size:4vw; font-weight:600; }
     @media(min-width:600px) {
-      h1 { font-size:2.5rem; }
+      header h1 { font-size:2rem; }
+      .sub-title { font-size:1rem; }
+      h1.main-title { font-size:2.5rem; margin:2rem 0 1.5rem; }
       .grid { gap:1.5rem; max-width:600px; grid-template-columns:repeat(3,1fr); }
       .card { padding:1.5rem; border-radius:1rem; }
       .card svg { width:80px; height:80px; margin-bottom:1rem; }
@@ -36,7 +49,11 @@
   </style>
 </head>
 <body>
-  <h1>Zgjidh Modul</h1>
+  <header>
+    <h1>Rendez-vous Jale 2025</h1>
+    <div class="sub-title">Young Adults Camp (25+)</div>
+  </header>
+  <h1 class="main-title">Zgjidh Modul</h1>
   <div class="grid">
     <!-- Predikimi -->
     <div class="card" onclick="location.href='presentation.html'">
@@ -58,7 +75,7 @@
       <svg viewBox="0 0 24 24"><path d="M12 2l2.09 6.26L20 9l-5 3.64L16.18 20 12 16.9 7.82 20 9 12.64 4 9l5.91-.74L12 2z"/></svg>
       <span>Adhurim</span>
     </div>
-    <!-- Rregullat e Kampit -->
+    <!-- Rregulla -->
     <div class="card" onclick="location.href='rregulla.html'">
       <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm0-4H7v2h2V7zm0 8H7v2h2v-2zm4-8h-2v2h2V7zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2zm4-8h-2v2h2V7zm0 4h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>
       <span>Rregullat</span>
