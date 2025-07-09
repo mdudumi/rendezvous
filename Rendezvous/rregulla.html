@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Rregullat e Kampit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html, body {
+      width:100%; height:100%; overflow:auto;
+      font-family:'Inter',sans-serif;
+      background: linear-gradient(135deg,#ff6a00,#ee0979);
+      color: #fff;
+    }
+    .back-btn {
+      position: fixed; top:2vw; left:2vw;
+      background: rgba(255,255,255,0.3); backdrop-filter: blur(6px);
+      padding:2vw; border-radius:50%; cursor:pointer;
+      transition: background .3s;
+      z-index:10;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.5); }
+    .wrapper {
+      padding:5vw; max-width:90vw; margin:0 auto;
+    }
+    h1 {
+      font-size:8vw; text-align:center;
+      margin-bottom:4vw; font-weight:700;
+    }
+    .rules {
+      list-style:none; font-size:4vw; line-height:1.6;
+    }
+    .rules li {
+      position: relative; padding-left:6vw; margin-bottom:3vw;
+    }
+    .rules li::before {
+      content: '✔'; position:absolute; left:0; top:0;
+      font-size:5vw; color: rgba(255,255,255,0.8);
+    }
+    @media(min-width:600px) {
+      .back-btn { top:1rem; left:1rem; padding:0.5rem; }
+      .wrapper { padding:2rem; max-width:800px; }
+      h1 { font-size:2.5rem; margin-bottom:2rem; }
+      .rules { font-size:1rem; }
+      .rules li { margin-bottom:1rem; padding-left:2rem; }
+      .rules li::before { font-size:1.2rem; left:0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="back-btn" onclick="location.href='index.html'">🔙</div>
+  <div class="wrapper">
+    <h1>Rregullat e Kampit</h1>
+    <ul class="rules">
+      <li>Mbërrini çdo ditë në kohë dhe me veshjen e duhur të kampit.</li>
+      <li>Respektoni udhëheqësit, stafin dhe njëri-tjetrin.</li>
+      <li>Mban vetëm pajisjet e nevojshme; celularët dhe pajisjet elektronike ruhen gjatë aktivitetit.</li>
+      <li>Merrni pjesë aktivisht në të gjitha aktivitetet dhe lojërat.</li>
+      <li>Mban ambientin e pastër: hidhni mbeturinat vetëm në vendet e caktuara.</li>
+      <li>Respektoni oraret e gjumit dhe pushimit.</li>
+      <li>Palosni dhe ruani rrobat dhe materialet personale pas përdorimit.</li>
+      <li>Ndihmoni njëri-tjetrin dhe mbani një sjellje pozitive gjatë gjithë kohës.</li>
+      <li>Respektoni masat e sigurisë në aktivitetet sportive dhe ato ujore.</li>
+      <li>Pini ujë të mjaftueshëm dhe mbani veten të hidratuar.</li>
+    </ul>
+  </div>
+</body>
+</html>
