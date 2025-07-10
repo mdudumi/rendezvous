@@ -117,21 +117,19 @@ Gjykimin s’e frikësojmë jo më,
 sepse gjaku i yt çlirim na jep.
 
 Gëzo, gëzo Emanuel,
-frikën e ferrit ke larguar tej.
-
-chords: 
-'Em          Am    Em   4/4
-O eja, eja o Emanuel,'
-'G                     D  Am   Em
-shpengo të robëruarin Izrael,'
-'Am                G  D  A G
-ndërsa n’mërgim ai po mban zi'
-'Em                 Am        Em
-dhe pret të shfaqet Biri i Perëndisë.'
-'D    Em     Am   Em
-Gëzo, gëzo Emanuel,'
-'G                     D   Am   Em
-çlirimin solle Ti në Izrael.'
+frikën e ferrit ke larguar tej.`,
+        chords: `Em          Am    Em   4/4
+O eja, eja o Emanuel,
+G                     D  Am   Em
+shpengo të robëruarin Izrael,
+Am                G  D  A G
+ndërsa n’mërgim ai po mban zi
+Em                 Am        Em
+dhe pret të shfaqet Biri i Perëndisë.
+D    Em     Am   Em
+Gëzo, gëzo Emanuel,
+G                     D   Am   Em
+çlirimin solle Ti në Izrael.`
       },
       botenTende: {
         title: "Ne botën Tënde",
@@ -145,9 +143,9 @@ Sa mirë ndihem në Ty, sa bukuri ka bota jote.
 Nuk ka dhimbje, vetëm dashuri,
 Drita jote shkëlqen në sytë e mi,
 është dritë e përjetshme,
-Je Ti, o Zot.`
-chords: `Em   C  G  D    3/4
-Në luginën e botës tënde’...
+Je Ti, o Zot.`,
+        chords: `Em   C  G  D    3/4
+Në luginën e botës tënde…`
       },
       hajde: {
         title: "Hajde, hajde",
@@ -164,25 +162,24 @@ Edhe Ti sundon mbi të gjithë.
 
 Ne sofrën Tënde na ke thirrur,
 Dhe ne themi eja, le të festojmë
-Të gëzojmë në përjetësi.`
-chords:
-`Em  Am   G  B7   Capo 3
-Na ka krijuar një Zot besnik,'
-'Em       G    B7
-Ai mbretëron në madhështí.'
-'Em    Am         G         B7
-Prandaj ne themi eja, le të festojmë,'
-'B7
-I madh është Zoti ynë!'
+Të gëzojmë në përjetësi.`,
+        chords: `Em  Am   G  B7   Capo 3
+Na ka krijuar një Zot besnik,
+Em       G    B7
+Ai mbretëron në madhështí.
+Em    Am         G         B7
+Prandaj ne themi eja, le të festojmë,
+B7
+I madh është Zoti ynë!
 
-'Em
-Hajde, hajde! Të lavdërojmë Jezusin'
-'D
-Eja, eja! Në prezencën e Tij'
-'Em               D
-Do lartësojmë Ty sepse Ti je Zoti i mrekullueshmi,'
-'              C          D     Em
-Edhe Ti sundon mbi të gjithë.’...
+Em
+Hajde, hajde! Të lavdërojmë Jezusin
+D
+Eja, eja! Në prezencën e Tij
+Em               D
+Do lartësojmë Ty sepse Ti je Zoti i mrekullueshmi,
+              C          D     Em
+Edhe Ti sundon mbi të gjithë.`
       },
       ngrihem: {
         title: "Do të ngrihem",
@@ -207,27 +204,26 @@ Në Krishtin jam ringjallur,
 ndaj shpall mbretërinë e Tij,
 me jetën shpall kush ti je,
 dhe emrin Tënd lavdëroj!
-E përjetshme është fjala jote
-jote. Jotja mbretërinë fund nuk njeh
-lavdet për ty s'kanë fund Zot
-dhe do t'vazhdojnë përjetë
 
-Asnjë fuqi s'të bën ballë
-Asnjë mallkim s'të zë
-Askush s'ta vjedh lavdinë 
-se vec ty të perket
-Qëndroj e t' këndoj lavde
-qëndroj edhe këndoj
-se i vdekur në mëkat isha`
-chords: 
-' G               D Em    4/4    Capo3
-Kjo është zbulesa ime, Jezus Krishti i kryqëzuar,'
-' C                G   Em      D
+E përjetshme është fjala jote,
+Jotja mbretërinë fund nuk njeh,
+Lavdet për ty s'kanë fund Zot,
+dhe do t'vazhdojnë përjetë.
+
+Asnjë fuqi s'të bën ballë,
+Asnjë mallkim s'të zë,
+Askush s'ta vjedh lavdinë,
+se vec ty të përket.
+Qëndroj e t' këndoj lavde,
+qëndroj edhe këndoj,
+se i vdekur në mëkat isha.`,
+        chords: `G               D Em    4/4    Capo3
+Kjo është zbulesa ime, Jezus Krishti i kryqëzuar,
+C                G   Em      D
 Do t’ngrihem lart, do t’ngrihem lart,
-ashtu si Krishti u ngjall.'
+ashtu si Krishti u ngjall.
 
-'C G Em D Bridge'
-
+C G Em D Bridge`
       },
     };
 
@@ -243,9 +239,9 @@ ashtu si Krishti u ngjall.'
       const song = songs[key];
       const mode = [...modes].find(r => r.checked).value;
       ti.textContent = song.title;
-      tx.textContent = (mode==='chords' && song.chords) ? song.chords : song.lyrics;
+      tx.textContent = (mode === 'chords' && song.chords) ? song.chords : song.lyrics;
       wrap.style.display = 'block';
-      wrap.scrollIntoView({behavior:'smooth'});
+      wrap.scrollIntoView({behavior: 'smooth'});
     }
 
     sel.addEventListener('change', render);
