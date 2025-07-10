@@ -37,6 +37,7 @@
     }
     .option:hover { transform:translateY(-2vw); background:rgba(255,255,255,0.3); }
     .option.correct { background:rgba(255,255,255,0.6); color:#333; }
+    .option.wrong { background:rgba(255,0,0,0.5); color:#fff; }
     #score-display { font-size:4vw; margin-top:2vw; }
     .progress { position:absolute; bottom:0; left:0; height:4vw; background:rgba(255,255,255,0.7); width:0; transition: width 0.4s; }
     @media(min-width:600px){
@@ -50,31 +51,24 @@
   </style>
 </head>
 <body>
-  <!-- Back to index -->
-  <div class="back-btn" onclick="location.href='index.html'">🔙</div>
-
+  <div class="back-btn" onclick="location.href='index.html'" role="button" aria-label="Kthehu">🔙</div>
   <div id="slides">
     <div class="slide theme-pred active">
       <div class="section-title">Pjesa 1: Predikimi Dinamik</div>
       <p>Mirësevini në prezantimin mbi takimin e Mateut me Jezusin.</p>
     </div>
 
-  <div class="slide theme-pred">
-      <h2>Mateu 9:9 
-Pastaj Jezusi, duke shkuar tutje, pa një burrë që rrinte në doganë, i quajtur Mate, dhe i tha: ''Ndiqmë!''. Dhe ai u çua dhe e ndoqi.</h2>
+    <div class="slide theme-pred">
+      <h2>Mateu 9:9<br>Pastaj Jezusi, duke shkuar tutje, pa një burrë që rrinte në doganë, i quajtur Mate, dhe i tha: ''Ndiqmë!''. Dhe ai u çua dhe e ndoqi.</h2>
     </div>
 
-
-<div class="slide theme-pred">
-      <h2>Marku 2:14
-Duke kaluar, pa Levin, birin e Alfeut, i cili qe ulur në vendin e tatimeve, dhe i tha: ''Ndiqmë!''. Ai u ngrit dhe e ndoqi.</h2>
+    <div class="slide theme-pred">
+      <h2>Marku 2:14<br>Duke kaluar, pa Levin, birin e Alfeut, i cili qe ulur në vendin e tatimeve, dhe i tha: ''Ndiqmë!''. Ai u ngrit dhe e ndoqi.</h2>
     </div>
 
-<div class="slide theme-pred">
-      <h2>Luka 5:27-30
-Dhe, mbas këtyre gjërave, ai doli dhe pa një tagrambledhës, që quhej Levi, dhe rrinte në vendin e tatimeve, dhe i tha: ''Ndiqmë''. Dhe ai i la të gjitha, u ngrit dhe e ndoqi. Pastaj Levi i përgatiti në shtëpinë e tij një gosti të madhe, dhe një numër i madh tagrambledhësish e të tjerë rrinin në tryezë bashkë me ta. Por skribët dhe farisenjtë e atij vendi murmurisnin kundër dishepujve të Jezusit duke thënë: ''Përse hani dhe pini bashkë me tagrambledhës dhe mëkatarë?''.</h2>
+    <div class="slide theme-pred">
+      <h2>Luka 5:27-30<br>Dhe, mbas këtyre gjërave, ai doli dhe pa një tagrambledhës, që quhej Levi, dhe rrinte në vendin e tatimeve, dhe i tha: ''Ndiqmë''. Dhe ai i la të gjitha, u ngrit dhe e ndoqi...</h2>
     </div>
-
 
     <div class="slide theme-pred">
       <h2>Kush ishte Mateu?</h2>
@@ -90,29 +84,31 @@ Dhe, mbas këtyre gjërave, ai doli dhe pa një tagrambledhës, që quhej Levi, 
       </ul>
     </div>
 
-<div class="slide theme-pred">
-      <h2>Mate = Dhuratë nga Zoti
-          Levi = Lidh
-          Alfe = Ndryshim</h2>
+    <div class="slide theme-pred">
+      <h2>Mate = Dhuratë nga Zoti<br>Levi = Lidh<br>Alfe = Ndryshim</h2>
     </div>
 
     <div class="slide theme-pred">
       <h2>Thirrja e Jezusit</h2>
       <p><em>Mateu 9:9</em> – “Eja pas meje.”</p>
     </div>
+
     <div class="slide theme-quiz" id="quiz-slide">
       <h2>Pjesa 2: Kuizi</h2>
       <div id="score-display">Pikët: <span id="score">0</span></div>
       <div id="quiz-container"></div>
     </div>
+
     <div class="slide theme-ref" id="ref-slide">
       <h2>Pjesa 3: Reflektim Praktik</h2>
       <div id="ref-container"></div>
     </div>
+
     <div class="slide theme-end">
       <h2>Faleminderit!</h2>
       <p>Vazhdoni me modulet e tjera nga faqja kryesore.</p>
     </div>
+
     <div class="progress" id="progress"></div>
   </div>
 
@@ -123,10 +119,11 @@ Dhe, mbas këtyre gjërave, ai doli dhe pa një tagrambledhës, që quhej Levi, 
 
     function show(i) {
       slides[cur].classList.remove('active');
-      cur = i; slides[cur].classList.add('active');
-      prog.style.width = (cur/(slides.length-1)*100)+'%';
-      if (slides[cur].id==='quiz-slide') initQuiz();
-      if (slides[cur].id==='ref-slide') initRef();
+      cur = i;
+      slides[cur].classList.add('active');
+      prog.style.width = (cur / (slides.length - 1) * 100) + '%';
+      if (slides[cur].id === 'quiz-slide') initQuiz();
+      if (slides[cur].id === 'ref-slide') initRef();
     }
 
     document.body.addEventListener('click', e => {
@@ -134,54 +131,64 @@ Dhe, mbas këtyre gjërave, ai doli dhe pa një tagrambledhës, që quhej Levi, 
       if (cur < slides.length - 1) show(cur + 1);
     });
 
-    // Quiz
     const quizQ = [
       { q:'Cili ishte profesioni i Mateut?', opts:['Mjek','Tagrambledhës','Mësues','Peshkatar'], a:1 },
-      { q:'Në cilin qytet punonte Mateu?',       opts:['Nazaret','Jerusalem','Betsaida','Kapernaum'], a:3 },
-      { q:'Cilën thirrje i bëri Jezusi?',        opts:['Më ndiq','Bëhu pastrues','Na shoqëro','Rri këtu'], a:0 },
-      { q:'Cili është emri i Babait të Mateut?',          opts:['Tade','Jakob','Alfe','Timote'], a:2 },
-      { q:'Cili atribut nuk përmendet?',         opts:['Kurajo','Drejtësi','Frymëzim','Transformim'], a:2 }
-{ q:'Kush është vëllai i Mateut?',         opts:['Gjoni','Juda','Jakobi','Luka'], a:2 }
-{ q:'Çfarë nuk ishte Mateu?',         opts:['Prift','Apostull','I pasur','I njohur'], a:0 }
+      { q:'Në cilin qytet punonte Mateu?', opts:['Nazaret','Jerusalem','Betsaida','Kapernaum'], a:3 },
+      { q:'Cilën thirrje i bëri Jezusi?', opts:['Më ndiq','Bëhu pastrues','Na shoqëro','Rri këtu'], a:0 },
+      { q:'Cili është emri i Babait të Mateut?', opts:['Tade','Jakob','Alfe','Timote'], a:2 },
+      { q:'Cili atribut nuk përmendet?', opts:['Kurajo','Drejtësi','Frymëzim','Transformim'], a:2 },
+      { q:'Kush është vëllai i Mateut?', opts:['Gjoni','Juda','Jakobi','Luka'], a:2 },
+      { q:'Çfarë nuk ishte Mateu?', opts:['Prift','Apostull','I pasur','I njohur'], a:0 }
     ];
-    let qi=0, qs=0;
-    function initQuiz(){
+
+    let qi = 0, qs = 0;
+    function initQuiz() {
       document.getElementById('score').textContent = qs;
       const c = document.getElementById('quiz-container');
       c.innerHTML = `<h2>${quizQ[qi].q}</h2>`;
-      quizQ[qi].opts.forEach((o,i)=>{
+      quizQ[qi].opts.forEach((o, i) => {
         const d = document.createElement('div');
-        d.className = 'option'; d.textContent = o;
+        d.className = 'option';
+        d.setAttribute('role', 'button');
+        d.setAttribute('tabindex', '0');
+        d.textContent = o;
         d.onclick = () => {
-          if (i===quizQ[qi].a){ qs++; d.classList.add('correct'); }
+          if (c.querySelector('.option.correct, .option.wrong')) return;
+          if (i === quizQ[qi].a) { qs++; d.classList.add('correct'); }
           else d.classList.add('wrong');
-          setTimeout(()=>{
-            qi++; qi<quizQ.length? initQuiz() : show(slides.findIndex(s=>s.id==='ref-slide'));
-          },600);
+          setTimeout(() => {
+            qi++;
+            qi < quizQ.length ? initQuiz() : show(slides.findIndex(s => s.id === 'ref-slide'));
+          }, 600);
         };
         c.appendChild(d);
       });
     }
 
-    // Reflection
     const refQ = [
-{ q:'Cilat janë gjërat që mund të jenë pengesë në jetën tënde dhe si e drejtojnë ato jetën tënde?',         opts:['Pasuria','Shoqëria','Karriera','Rrjetet sociale'] }
+      { q:'Cilat janë gjërat që mund të jenë pengesë në jetën tënde dhe si e drejtojnë ato jetën tënde?', opts:['Pasuria','Shoqëria','Karriera','Rrjetet sociale'] },
       { q:'Si e ndien thirrjen “Eja pas meje”?', opts:['Frymëzim','Dëshpërim','Kureshtje','Pa ndryshim'] },
-      { q:'Çfarë hapi konkret mund të bëni?',    opts:['Të heshtësh','Të ndihmosh','Të studiosh Bibël','Të mos veprosh'] },
-      { q:'Kujt do e ndanit këtë mesazh?',       opts:['Mikut','Familjes','Fqinjëve','Shoqërisë'] }
+      { q:'Çfarë hapi konkret mund të bëni?', opts:['Të heshtësh','Të ndihmosh','Të studiosh Bibël','Të mos veprosh'] },
+      { q:'Kujt do e ndanit këtë mesazh?', opts:['Mikut','Familjes','Fqinjëve','Shoqërisë'] }
     ];
+
     let ri = 0;
-    function initRef(){
+    function initRef() {
       const c = document.getElementById('ref-container');
       c.innerHTML = `<h2>${refQ[ri].q}</h2>`;
-      refQ[ri].opts.forEach(o=>{
+      refQ[ri].opts.forEach(o => {
         const d = document.createElement('div');
-        d.className='option'; d.textContent = o;
+        d.className = 'option';
+        d.setAttribute('role', 'button');
+        d.setAttribute('tabindex', '0');
+        d.textContent = o;
         d.onclick = () => {
+          if (c.querySelector('.option.correct')) return;
           d.classList.add('correct');
-          setTimeout(()=>{
-            ri++; ri<refQ.length? initRef() : show(slides.length-1);
-          },600);
+          setTimeout(() => {
+            ri++;
+            ri < refQ.length ? initRef() : show(slides.length - 1);
+          }, 600);
         };
         c.appendChild(d);
       });
