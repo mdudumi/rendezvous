@@ -37,7 +37,6 @@
   </style>
 </head>
 <body>
-  <!-- Back to index -->
   <div class="back-btn" onclick="location.href='index.html'">🔙</div>
 
   <div class="wrapper">
@@ -45,17 +44,6 @@
     <div class="controls">
       <select id="songSelect">
         <option value="" disabled selected>— Zgjidh këngën —</option>
-        <option value="luftetar">Zoti ynë është luftëtar</option>
-        <option value="emanuel">Eja, eja Emanuel</option>
-        <option value="botenTende">Ne botën Tënde</option>
-        <option value="hajde">Hajde, hajde</option>
-        <option value="ngrihem">Do të ngrihem</option>
-<option value="vecNeKrishtin">Veç në Krishtin, gjeta plotësinë</option>
-<option value="asgjeSmeMbanPas">Asgjë s’më mban pas</option>
-<option value="mbretLavdie">Mbret i lavdisë</option>
-<option value="tekKryqiMeDrejto">Tek kryqi më drejto</option>
-<option value="iQete">I qetë</option>
-<option value="seAiJeton">Se Ai Jeton</option>
       </select>
       <div class="mode">
         <label><input type="radio" name="mode" value="lyrics" checked> Vetëm tekst</label>
@@ -69,371 +57,7 @@
   </div>
 
   <script>
-    const songs = {
-
-vecNeKrishtin: {
-        title: "Veç në Krishtin, gjeta plotësinë",
-        lyrics: 'Një lumë gëzimi prej Tij rrjedh
-Nga venat e Zotit Tim
-Unë mëkatar, u zhyta në atë rrjedhë,
-të marr shpëtim...
-
-Vazhdoj të jetoj unë i falur,
-I gjithë mëkati më është fshirë,
-S'ka më zinxhirë, janë këputur më në fund,
-jam i lirë, oh jam i lirë...
-
-Jetë e re prej mëshirës së Zotit,
-Jetë e re prej mirësisë së Tij,
-Jeta ime ndryshoi, në dorën e Tij e kam lënë,
-Veç në Krishtin, gjeta plotësinë...',
-        chords: 'G
-Një lumë gëzimi prej Tij rrjedh
-C2
-Nga venat e Zotit Tim
-D              C
-Unë mëkatar, u zhyta në atë rrjedhë,
-                G
-të marr shpëtim.
-
-G
-Vazhdoj të jetoj unë i falur
-C2
-I gjithë mëkati më është fshirë
-D              C
-S'ka më zinxhirë, janë këputur më në fund
-G        D
-jam i lirë, oh jam i lirë...
-
-G
-Jetë e re prej mëshirës së Zotit
-G
-Jetë e re prej mirësisë së Tij
-Em                    C
-Jeta ime ndryshoi, në dorën e Tij e kam lënë
-G        D           G
-Veç në Krishtin, gjeta plotësinë.'
-      },
-
-      asgjeSmeMbanPas: {
-        title: "Asgjë s’më mban pas",
-        lyrics: 'Jam i zgjedhur jam i lirë, të jetoj në përjetësi
-I lirë përgjithmonë
-Me ngjite lart, Ti më drejton, këmbët e mia i forcon
-I Yti përgjithmonë
-
-Asgjë nuk do t’me kthej më pas
-Prangat u thyen jam i lirë
-Jam i gjallë t’jetoj për Ty, i gjallë për Ty
-Oh ç’ dashuri si ka mundësi?
-dhe gjithçka per mua Ti, dhe gjithçka…',
-        chords: 'G                  Em
-Jam i zgjedhur jam i lirë, të jetoj në përjetësi
-C
-I lirë përgjithmone
-
-G                      Em
-Me ngjite lart, Ti më drejton, këmbët e mia i forcon
-C
-I Yti përgjithmon’
-
-Para Ref:
-'C       Em       D
-Asgjë nuk do t’me kthej më pas
-D       C
-Asgjë nuk do t’me kthej më pas'
-
-Ref:
-'G               D
-Prangat u thyen jam i lirë
-Em              D
-Jam i gjallë t’jetoj për Ty...'
-`
-      },
-
-      mbretLavdie: {
-        title: "Mbret i lavdisë",
-        lyrics: 'Kush është ky mbret i lavdisë,
-Është Zoti i fortë dhe i fuqishëm.
-Kush është ky mbret i lavdisë,
-Është Zoti i fortë në betejë.
-
-Strehim i pa pushtueshëm, mali yt i shenjtë.
-Sa i mrekullueshëm, emri Yt i denjë.
-
-Kush do ti ngjitet, malit të Zotit,
-Kush do qëndroj në vendin e shenjtë,
-Në vendin e Tij të shenjtë.
-
-Kush është ky mbret i lavdisë?
-Është Zoti i zemrës sime.',
-        chords: 'Em
-Kush është ky mbret i lavdisë,
-Cmaj7      D
-Është Zoti i fort dhe i fuqishëm.
-Em
-Kush është ky mbret i lavdisë,
-Cmaj7      D - (Bm)
-Është Zoti i fort në betejë. (2X)
-
-Ref:
-Cmaj7  D     Bm   Em
-Strehim i pa pushtueshëm...'
-      },
-
-      tekKryqiMeDrejto: {
-        title: "Tek kryqi më drejto",
-        lyrics: 'Jezus un’ vij, shpirtin qet’some, kujtohem
-Atje në Kalvar u derdh gjaku yt, me bleve
-ja cdo gje qe kisha t’shtrenjte humbje i konsideroj
-
-Ref:
-Tek kryqi me drejto ku derdhe dashurine
-bem te vij tek ti gjunjezuar Zot
-nga vetja me shperto une ty te perkas
-tek kryqi, tek kryqi me drejto
-
-Ashtu porsi une n’tundim dhe ne prove njerezor
-Fjala njeri, fajin, vdekjen mbarti por i gjalle esht’
-ja cdo gje qe kisha t’shtrenjte humbje i konsideroj',
-        chords: 'Intro: Am G F (2x)
-Am        G        F         C     G
-Jezus un’ vij, shpirtin qet’some, kujtohem
-Am        G        F         C     G
-Atje në Kalvar u derdh gjaku yt, me bleve
-Dm        G
-ja cdo gje qe kisha t’shtrenjte
-C         G      F
-humbje i konsideroj
-
-Ref:
-F          C       G
-Tek kryqi me drejto...
-Dm7        F  G   Am
-tek kryqi, tek kryqi me drejto'
-      },
-
-      iQete: {
-        title: "I qetë",
-        lyrics: 'Me merr tani, ne krahet e Tu
-Me mbulo, Zot me t’fuqishmen dor
-
-Kur detet dallg’zojne, qielli bucet
-Un’ fluturoj me Ty permbi stuhite
-At permbi permbytjet ti je mbret
-E di, je Zot, ndaj jam i qete
-
-Gjej paqe shpirt, ne Krishtin Zot
-Fuqine e Tij e sheh, kur me besim ti pret',
-        chords: 'Intro: F Am C G
-C   G   Am       F   D   G - D
-Me merr tani, ne krahet e Tu...
-C   G   Am       F   Dm  G
-Me mbulo, Zot me t’fuqishmen dor'
-
-Chorus:
-'F      G     C
-Kur detet dallg’zojne...
-F      G     Am
-Un’ fluturoj me Ty permbi stuhite...'
-      },
-
-      seAiJeton: {
-        title: "Se Ai Jeton",
-        lyrics: 'Un’ ne Birin besoj
-Ne te vetmin qe u ringjall.
-Un’ besoj fitoren kam
-Prej fuqis’ ne atë gjak.
-
-Amen, Amen, jam i gjalle,
-Jam i gjalle se Ai jeton.
-Amen, Amen, këngen ngre, tek Ai
-Qe s’ka kurr’ fund, se Ai jeton.'
-
-'Qesh’ i vdekur ne varr
-Qesh’ mbuluar me turp dhe faj,
-Emri im prej Tij u thirr
-dhe guri u hoq tej.
-
-Kam fuqi per neser
-Se Ai jeton, çdo frik’ që kam un’ shkon
-E di, Ai mban, k’te jetë dhe t’ardhmen n’doren e Tij',
-        chords: 'Em       C    G
-Un’ ne Birin besoj
-Em       C    G
-Ne te vetmin qe u ringjall.
-C        Em   D
-Prej fuqis’ ne atë gjak.
-
-C   D   Em   D  G
-Amen, Amen, jam i gjall’
-C   D   Em   D    D Aas
-Jam i gjall’ se Ai jeton'
-      }
-
-
-      luftetar: {
-        title: "Zoti ynë është luftëtar",
-        lyrics: `Ti na nxjerr’ jasht’ nga thell’sit’,
-këput zinxhirët, na bën të lirë.
-Jo asnjë armë s’triumfon
-me Fjalën tënde ne i dërrmojmë.
-
-Lavdet për Ty Zot jehojn’,
-shenjtorët shpallin, sa i madh Ti je.
-Përjetë o Zot do të mbretërosh,
-ndaj s’kemi frikë, në Ty qëndrojmë.
-
-Ref:
-Zoti ynë është luftëtar,
-është zjarr që konsumon.
-Me fitore mbretëron,
-n’emrin e Tij ne fitojm’.
-
-Bridge:
-Ësht’ ngritur lart ky emri Jezus
-Për mbrojtjen tonë qëndron i patundur
-Ndaj ne dëshmojm’ fuqinë e pashterur
-Që është në emrin Jezus…`,
-        chords: `G   D   Em  C     4/4
-Ti na nxjerr’ jasht’ nga thell’sit’...
-...
-C   G   D   Em
-Ësht’ ngritur lart ky emri Jezus…`
-      },
-      emanuel: {
-        title: "Eja, eja Emanuel",
-        lyrics: `O eja, eja o Emanuel,
-shpengo të robëruarin Izrael,
-ndërsa n’mërgim ai po mban zi
-dhe pret të shfaqet Biri i Perëndisë.
-
-Gëzo, gëzo Emanuel,
-çlirimin solle Ti në Izrael.
-
-Eja agim mëngjesi që nga lart,
-lër dritën Tënde të shkëlqejë mbi ne;
-të zymta retë e natës  do shpërndaj
-dhe hija e vdekjes do shkoj’ larg nga ne.
-
-Gëzo, gëzo Emanuel,
-se Ti do të vish tek ne në Izrael.
-
-O ndërmjetësues, Kryeprifti ynë,
-lutja jonë,qoftë tëndja sakrificë.
-Gjykimin s’e frikësojmë jo më,
-sepse gjaku i yt çlirim na jep.
-
-Gëzo, gëzo Emanuel,
-frikën e ferrit ke larguar tej.`,
-        chords: `Em          Am    Em   4/4
-O eja, eja o Emanuel,
-G                     D  Am   Em
-shpengo të robëruarin Izrael,
-Am                G  D  A G
-ndërsa n’mërgim ai po mban zi
-Em                 Am        Em
-dhe pret të shfaqet Biri i Perëndisë.
-D    Em     Am   Em
-Gëzo, gëzo Emanuel,
-G                     D   Am   Em
-çlirimin solle Ti në Izrael.`
-      },
-      botenTende: {
-        title: "Ne botën Tënde",
-        lyrics: `Në luginën e botës Tënde un’ dua të endem,
-Në krahët e agimit dua të fle.
-Në madhështinë Tënde që Ti ke krijuar,
-Mbështes lehtë kokën, mendoj vetëm për Ty.
-
-T’buzeqesh Ty, o Zot (2x)
-Sa mirë ndihem në Ty, sa bukuri ka bota jote.
-Nuk ka dhimbje, vetëm dashuri,
-Drita jote shkëlqen në sytë e mi,
-është dritë e përjetshme,
-Je Ti, o Zot.`,
-        chords: `Em   C  G  D    3/4
-Në luginën e botës tënde…`
-      },
-      hajde: {
-        title: "Hajde, hajde",
-        lyrics: `Na ka krijuar një Zot besnik,
-Ai mbretëron në madhështí.
-Prandaj ne themi eja, le të festojmë,
-I madh është Zoti ynë!
-
-Ref:
-Hajde, hajde! Të lavdërojmë Jezusin
-Eja, eja! Në prezencën e Tij
-Do lartësojmë Ty sepse Ti je Zoti i mrekullueshmi,
-Edhe Ti sundon mbi të gjithë.
-
-Ne sofrën Tënde na ke thirrur,
-Dhe ne themi eja, le të festojmë
-Të gëzojmë në përjetësi.`,
-        chords: `Em  Am   G  B7   Capo 3
-Na ka krijuar një Zot besnik,
-Em       G    B7
-Ai mbretëron në madhështí.
-Em    Am         G         B7
-Prandaj ne themi eja, le të festojmë,
-B7
-I madh është Zoti ynë!
-
-Em
-Hajde, hajde! Të lavdërojmë Jezusin
-D
-Eja, eja! Në prezencën e Tij
-Em               D
-Do lartësojmë Ty sepse Ti je Zoti i mrekullueshmi,
-              C          D     Em
-Edhe Ti sundon mbi të gjithë.`
-      },
-      ngrihem: {
-        title: "Do të ngrihem",
-        lyrics: `Kjo është zbulesa ime, Jezus Krishti i kryqëzuar,
-Shpëtim përmes pendimit, në at' kryq që Ai vdiq.
-
-Mëkatet më janë falur, ky është rrëfimi im,
-U zhyta poshtë në ujëra, si Krishti u varros.
-
-Ref:
-Do t’ngrihem lart, do t’ngrihem lart,
-ashtu si Krishti u ngjall.
-Tani jetoj tani jetoj, në Të.
-
-Tani krijesë e re, i larë nga gjaku i Tij,
-S’kam frikë më nga dënimi,
-i lirë përmes besimit.
-
-Ref (2x)
-
-Në Krishtin jam ringjallur,
-ndaj shpall mbretërinë e Tij,
-me jetën shpall kush ti je,
-dhe emrin Tënd lavdëroj!
-
-E përjetshme është fjala jote,
-Jotja mbretërinë fund nuk njeh,
-Lavdet për ty s'kanë fund Zot,
-dhe do t'vazhdojnë përjetë.
-
-Asnjë fuqi s'të bën ballë,
-Asnjë mallkim s'të zë,
-Askush s'ta vjedh lavdinë,
-se vec ty të përket.
-Qëndroj e t' këndoj lavde,
-qëndroj edhe këndoj,
-se i vdekur në mëkat isha.`,
-        chords: `G               D Em    4/4    Capo3
-Kjo është zbulesa ime, Jezus Krishti i kryqëzuar,
-C                G   Em      D
-Do t’ngrihem lart, do t’ngrihem lart,
-ashtu si Krishti u ngjall.
-
-C G Em D Bridge`
-      },
-    };
+    let songs = {};
 
     const sel = document.getElementById('songSelect'),
           modes = document.getElementsByName('mode'),
@@ -443,17 +67,42 @@ C G Em D Bridge`
 
     function render() {
       const key = sel.value;
-      if (!key) { wrap.style.display = 'none'; return; }
+      if (!key || !songs[key]) {
+        wrap.style.display = 'none';
+        return;
+      }
+
       const song = songs[key];
       const mode = [...modes].find(r => r.checked).value;
+
       ti.textContent = song.title;
       tx.textContent = (mode === 'chords' && song.chords) ? song.chords : song.lyrics;
       wrap.style.display = 'block';
-      wrap.scrollIntoView({behavior: 'smooth'});
+      wrap.scrollIntoView({ behavior: 'smooth' });
     }
 
-    sel.addEventListener('change', render);
-    modes.forEach(r => r.addEventListener('change', render));
+    // Load songs from songs.json
+    fetch('songs.json')
+      .then(res => res.json())
+      .then(data => {
+        songs = data;
+
+        // Populate dropdown
+        Object.keys(songs).forEach(key => {
+          const opt = document.createElement('option');
+          opt.value = key;
+          opt.textContent = songs[key].title;
+          sel.appendChild(opt);
+        });
+
+        // Event listeners
+        sel.addEventListener('change', render);
+        modes.forEach(r => r.addEventListener('change', render));
+      })
+      .catch(err => {
+        alert('Gabim gjatë ngarkimit të këngëve.');
+        console.error(err);
+      });
   </script>
 </body>
 </html>
