@@ -28,5 +28,45 @@
     "title": "I qetë",
     "lyrics": "Me merr tani, në krahët e Tu\nMë mbulo, Zot, me t’fuqishmen dor’\n\nKur detet dallgë’zojnë, qielli buçet\nUn’ fluturoj me Ty përmbi stuhitë\nAtë përmbi përmbytjet Ti je mbret\nE di, je Zot, ndaj jam i qetë.\n\nGjej paqe shpirt, në Krishtin Zot\nFuqinë e Tij e sheh, kur me besim Ti pret.",
     "chords": "Intro: F  Am  C  G\nC     G   Am     F     D   G - D\nMe merr tani, ne krahet e Tu\nC     G   Am        F     Dm  G\nMe mbulo, Zot me t’fuqishmen dor’\n\nChorus:\nF         G       C\nKur detet dallg’zojne, qielli buçet\nF         G       Am\nUn’ fluturoj me Ty permbi stuhite\nF         G       C\nAt permbi permbytjet ti je mbret\nF         G       C   (Am)\nE di, je Zot, ndaj jam i qete\n\nII.\nC     G    Am        F     D   G\nGjej paqe shpirt, ne Krishtin Zot\nC     G    Am        F     Dm  G\nFuqine e Tij e sheh, kur me besim ti pret"
+  },
+  "deshmojPerDashurine": {
+    "title": "Deshmoj per Dashurine",
+    "lyrics": "Të gjithë ngjyrat e ylberit, dhe të gjithë zërat e erës\nedhe ëndrrat që na vijn’, vijn’ të gjejmë ku dashuria nis.\nFjalët e çdo historie, edhe yjet në çdo skaj\ndhe çdo cep i këtij krijimi, jeton të dëshmojë.\n\nRef:\nPër aq kohë sa do të jetoj, do dëshmoj për dashurinë\ndo të jem dëshmitar i heshtur, fjala e tepërt s’ka kuptim\nnë çdo frym’marrje që do t’marr, Zotin do t’falenderoj\npër aq kohë sa do të jetoj, për dashurin’ do të dëshmoj.\n\nQë nga malet në lugina, nga lumenjtë për në det\nkur një dorë zgjatet tek ne, ja një dorë zgjatet ne paqen t’na sjellë\nÇdo veprim i thjesht’ me hir, dhe çdo hap drejt mbretëris’\nedhe shpresa në çdo zemër tregon çfar’ ke bërë.",
+    "chords": "G   D   Em   C\nG   D   Em   C\nC   D   Em   C\nAm  Bm  C   D   G\n\nRef:\nG   D   Em\nC\nC   G\nG   D   Em\nC   D   G"
+  },
+  "jeZotIForteTeShpetosh": {
+    "title": "Je Zot i fortë të shpëtosh",
+    "lyrics": "Të gjithë e duam dhembshurinë\nDashurin’ që kurr’ s’shteron, mëshirën që t’jetë mbi ne.\nMirësin’ e shpëtimtarit, shpresën e kombeve.\n\nRef:\nJezus, Ti lëviz dhe malet\nje Zot i fort’ të shpëtosh, je i fort’ të shpëtosh\nPërjet’ je, autori i shpëtimit\nTi vdekjen munde o Zot, vdekjen munde o Zot\n\nPranom’ kështu si jam Zot\nMe frik’rat dhe dëshimet, mbushma jetën sërish,\nJetën jap të t’ndjek ty, dhe gjithçka çfarë besoj Zot\ntek Ti dorëzohem\n\nBridge:\nShkëlqe dritën dhe gjith bota ta shoh, këndojm,\npër lavdinë e Mbretit tonë të gjallë, Jezus",
+    "chords": "C   G   Em   D\nEm   D   C-D-C-D\n\nRef:\nG   D\nC   G   Em   D\nG   D\nC   G   Em   D\n\nIntro: C – G – Em – D\n\nBridge:\nC   G   D   Em\nC   G   D   Em"
+  },
+  "aiEshteIVeshurMeDrite": {
+    "title": "Ai është i veshur me dritë",
+    "lyrics": "Ai është i veshur me dritë e madhështi\nËshtë i mbuluar me shkëlqim edhe lavdi\nPushteti dhe shenjtëria para Tij\nForca bekimi në shenjtëroren e Tij\n\nRef:\nUnë do të të lëvdoj Perëndia im\nEmrin tënd ngre lart o Mbreti im\nSytë e njerëzve do shikojnë\nVeshët e tyre do dëgjojnë\nGjuhët e tyre do rrëfejnë\nSe je Zot dhe mbretëron\n\nBridge:\nI madh është Zoti ynë\nFuqia e Tij është e pamasë\nKëndojini Zotit me falënderim\nAi është i denjë për lavdërim.",
+    "chords": "Intro: Am – G – F – E\nAm   G\nF    E\nAm   G\nF    E\n\nRef:\nAm   G   C\nAm   G   C\nF\nC\nEm\nF-E  Am\n\nBridge:\nD     Am\nC     Em\nF     D\nB7    E"
+  },
+  "derisaTeShohTy": {
+    "title": "Derisa të shoh ty",
+    "lyrics": "Me e madhja dashuri që dikush mund t’njoh\nqë mundi kryqin varrin shpirtin tim t’shpëtoj\nDer’sa t’shoh ty ballë për ballë\nDhe hiri Yt tek Ti t’me sjell\nbesoj në ty\n\nMe gjithçka jam, jetoj të shoh tenden mbret’ri\nNë zemrën time lutem “U Bëftë vullneti Yt”\nder’sa t’shoh ty ballë për ballë\nDhe hiri Yt tek Ti t’me sjell\nbesoj në ty\n\nRef:\nDo t’jetoj të të dua\nDo t’jetoj të të sjell lavdi\nDo t’jetoj si fëmij’ mahnitur nga Ti",
+    "chords": "G   A   Bm7\nG   A   Bm7\nG   A   Bm7\nA\nG\n\nRef:\nD   A/C#\nBm7   D/F#\nG   A   Bm7   A"
+  },
+  "meMerrPraneTeje": {
+    "title": "Më merr pranë Teje",
+    "lyrics": "O Perëndi sa e çmuar është mirësia jote\nO Perëndi sa e madhe është dashuria jote\n\nRef1:\nSepse pranë teje është burimi i jetës\nPrej dritës tende unë shoh dritën\n\nO Zoti im sa e madhe është ligësia ime\nO Zoti im sa e vogël është dashuria ime\n\nRef2:\nMë merr pranë teje, më merr pranë teje\nDhe etjen me shuaj në përrroin e kënaqësive të tua",
+    "chords": "Intro: C  F  C  Fm  C  Am7  G\nC  Am  G  C\n\nRef1:\nF   C\nF   C\n\nRef2:\nF   C\nF   Am   G\nF   Am   G   C-C7\n\nOutro: C Am F G C"
+  },
+  "teAdhurojZotJezus": {
+    "title": "Të adhuroj Zot Jezus",
+    "lyrics": "Unë para teje përulem\nPara teje im Zot\nJetën time ta kam lënë\nTi o Zot ta drejtosh\n\nJo s’mund të shkoj unë asgjëkundi\nPa Ty nuk mund të eci Zot\nNë çdo pengesë edhe stuhi\nLutjen tek Ti e drejtoj\n\nRef:\nTë adhuroj Zot Jezus, t’adhuroj\nZërin tim ngre lart me gëzim t’këndoj\nJo asnjë gjë s’mund t’më ndaj prej teje im Zot\nDashuria jote me rri si mburojë\n\nOutro:\nDashuria jote me rri si mburojë.",
+    "chords": "C\nFmaj7 G\nC\nFmaj7 G\n\nEm  Am\nEm  Am\nEm  Am\nF  Esus E\n\nRef:\nAm  F  G\nAm  F  G - Am\nC  G - E  Am\nDm7  Em  F - G  Am\nDm7  Em  F - G  C"
+  },
+  "oBurimBekimi": {
+    "title": "O burim bekimi",
+    "lyrics": "O burim bekimi, eja, bëma zemrën të këndoj;\nE kërkon mëshira Jote un’ me këng’ ta lavdëroj!\nKur u enda larg nga Zoti, më kërkoi Jezusi Vet’\nT’më shpëtoj Ai nga vdekja derdhi gjakun, fali jetë.\n\nSa borxhli që jam ndaj hirit, kam detyra ndaj tij plot!\nLe të bëhet hiri prangë, të më lidh’ me Ty, o Zot.\nMë mëso një këng’ hareje, hirin Tënd të jap dëshmi,\nTë këndoj për gjithë thesaret që ka Jotja dashuri.\n\nPor un’ prirem për t’u endur, prirem të të lë, o Zot;\nMbushma zemrën e vulosma që ngja lart me Frymën plot!\nPra, i lirë nga mëkati, bler’ nga gjaku shpëngimtar,\nLe të ec mbi tok’, i huaj, si një bir’ dhe trashëgimtar!",
+    "chords": "C  G  F  G  C\nC  G  F  G  C\nG  C  F  C  G  C\nC  G  F  G  C\n\n(repeats with similar structure for verses 2 and 3)"
+  },
+  "zotiJezusShkembi": {
+    "title": "Zoti Jezus, Shkëmb’ i Shpëtimit",
+    "lyrics": "Bashk’sinë me Zotin tim të gjallë, është çka un’ po kërkoj,\nPrezenc’n e Tij s’e zëvendësoj me asnjë gjë.\nTek zemra e thyer po m’troket, ndaj derën po e hap,\nTë hyj brenda saj të shoh.\n\nRef:\nZoti Jezus, Shkëmb’ i Shpëtimit, çdo gjë tjetër Zot është rërë,\nTi je Shkëmbi ku qëndroj, Ti je Shkëmbi ku qëndroj.\n\nUn’ shpresën kam tek Zoti im dhe jo te çfar’ zot’roj,\nÇdo gjë tok’sore n’balt’ mua më la.\nNdaj do t’braktis’ çdo gjë që kam, do t’kapem fort tek Ti,\nGëzimin tim me këngë un’ do e shpall:\n\nRef 2:\nZoti Jezus, thesar i vyer, askush tjetër s’më jep shpresë,\nveç në Ty unë jetoj, veç në Ty unë gjej jetë.\n\nBridge:\nUn’ mbi këtë shkëmb të fort’, do t’qëndroj, do t’qëndroj.\nNë Ty dhe veç në Ty, do t’qëndroj, do t’qëndroj.\nDhe kur çdo gjë përreth, do të bjerë, do të bjerë,\ndo t’qëndroj, po do t’qëndroj.",
+    "chords": "Intro: D – G / D\nG   D   A   Em\nG   D   A\nG   D   A   G\n\nRef:\nA   D -G  D\nG   D   A\nG   Bm   A   G\nD  -G  D\n\nBridge:\nD   G   D   G   D\nBm  G  Bm  G  Bm\nA   D   G   D   G\nD   A - G"
   }
 }
